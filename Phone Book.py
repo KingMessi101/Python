@@ -1,5 +1,5 @@
 class PhoneBook:
-    def _init_(self):
+    def __init__(self):
         self.contacts= {}
 
     def add_contact(self):
@@ -37,3 +37,55 @@ class PhoneBook:
             print(f"Contact '{name}' updated successfully.\n")
         else:
             print("Contact not found.\n")
+
+    def delete_contacts(self):
+        name = input("Enter name to delete: ").strip()
+        if name in self.contacts:
+            del self.contacts [name]
+            print(f"Contact {name} deleted successfully.\n")
+        else:
+            print("Contact not Found.\n")
+
+    def display_all_contacts(self):
+        if self.contacts:
+            print("\nAll Contacts:")
+            for name, phone in self.contacts.items():
+                print(f"{name}: {phone}:")
+            print("\n")
+        else:
+            print("No contacts to display.\n")
+
+def main():
+    phonebook = PhoneBook()
+
+    while True:
+        print("PhoneBook Menu: ")
+        print("1. Add Contact")
+        print("2. View Contact")
+        print("3. Search by phone number")
+        print("4. Update Contact")
+        print("5. Delete Contact")
+        print("6. Display All Contacts")
+        print("7. Exit")
+
+        choice = input("Choose an Option: ").strip()
+
+        if choice == "1":
+            phonebook.add_contact()
+        elif choice == "2":
+            phonebook. view_contact()
+        elif choice == "3":
+            phonebook. search_by_number()
+        elif choice == "4":
+            phonebook. update_contact()
+        elif choice == "5":
+            phonebook. delete_contacts()
+        elif choice == "6":
+            phonebook. display_all_contacts()
+        elif choice == "7":
+            print("Exiting Phone Book Application...")
+        else:
+            print("Invalid Option. Please Try Again")
+        
+if __name__ == "__main__":
+    main()
