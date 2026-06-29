@@ -49,6 +49,5 @@ def main():
         st.markdown(response)  # markdown renders numbered points nicely
     else:
         st.info("Please enter a question to ask.")
-
 if __name__ == "__main__":
     main()
